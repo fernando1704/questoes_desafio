@@ -7,94 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="salomao.marcos@gmail.com">
     
-	<title>Netshoes Questão 1</title>
-
     <!-- Bootstrap style -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
                 
 </head>	
-<body ng-app="cepApp">
-  
-  	<div class="page-header">
-	   <h1>CEP
-	      <small>Realize a busca do CEP</small>
-	   </h1>
-	</div>
-  	<div class="container" ng-controller="cepControl">
-	  	<div class="alert alert-info">
-	  		Foram "mockados" os CEPs 22333999 e 22333000.
-	  	</div>
-	  		
- 		<form name="enderecoForm" role="form">
-		  	<div class="form-group">
-	  			<label>CEP*</label> 
-		  		<div class="form-inline">
-		  			<input  ng-model="endereco.cep" type="text" class="form-control" required /> 
-		  			<input type="button" value="Buscar CEP" class="btn btn-default" ng-click="buscarEnderecoPorCEP(endereco.cep)" />
-		  			<span class="text-danger">{{ mensagem }}</span> 
-		  		</div>
-	  		</div>
-		</form>
-		
-  		<div>RUA : {{ endereco.rua }}</div>
-  		<div>BAIRRO : {{ endereco.bairro }}</div>
-  		<div>CIDADE : {{ endereco.cidade }}</div>
-  		<div>ESTADO : {{ endereco.estado }}</div>
-  	</div>
-  	
-	<!-- jQuery and Bootstrap library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	  	
-	<!-- AngularJS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
-	
-	<script type="text/javascript">
-	
-	// module
-	var app = angular.module('cepApp', ['ngResource']);
-	
-	// controller
-	app.controller('cepControl', function($scope, $resource) {
-		
-		/**
-		 * Método para buscar o endereço do CEP.
-		 */
-		$scope.buscarEnderecoPorCEP	= function(_cep) {
-			 
-			 $scope.endereco = null;
-
-			 if (_cep == undefined || _cep == '') {
-				 $scope.mensagem = 'CEP é obrigatório!';
-				 return;
-			 }
-			 
-			console.log('Buscando o endereço do CEP: ' + _cep);
-
-			// Criando resource REST para o CEP
-			var cepResource = $resource('services/cep/:cep', {
-				cep: _cep,
-				isArray: false
-			});
-		
-			// Efetuando a requisição GET no servidor
-			cepResource.get().$promise.then(
-	    			function(endereco) {
-	    				$scope.endereco = endereco;
-	    				$scope.mensagem = '';
-	    			}, function(error) {
-			    		console.log('Ocorreu um erro ao buscar o CEP: ' + error.data);
-			    		$scope.mensagem = error.data;
-			    	});
-			
-		};
-	
-	});
-	
-	</script>
-    
+<body>
 </body>
 </html>
