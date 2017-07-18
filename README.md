@@ -1,3 +1,5 @@
+Estrutura do banco de dados existente no arquivo desafio.sql dentro da pasta database
+
 Resposta às questões teóricas
 
 4) O que é Deadlock? Detalhe um pouco sobre o caso e como você poderia resolver isso. 
