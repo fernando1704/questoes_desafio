@@ -1,4 +1,4 @@
-Estrutura do banco de dados existente no arquivo desafio.sql dentro da pasta database
+Estrutura do banco de dados existente no arquivo desafio.sql 
 
 Resposta às questões teóricas
 
