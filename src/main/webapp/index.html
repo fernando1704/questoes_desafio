@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-    <meta charset="iso-8859-1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    
-    <!-- Bootstrap style -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-                
-</head>	
-<body>
-</body>
+        <meta charset="iso-8859-1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+
+
+        <!-- Bootstrap style -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    </head>	
+    <body ng-app="campanhaApp">
+
+        <div class="page-header">
+            <h1>Listagem de campanhas
+            </h1>
+        </div>
+
+        <div class="container" ng-controller="campanhasController">
+            
+            <table class="table table-striped">
+                <tr>
+                    <th>Nome</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Time do Coração</th>
+                </tr>
+                <tr ng-repeat="c in campanhas">
+                    <td>{{ c.nome}}</td>
+                    <td>{{ c.início}}</td>
+                    <td>{{ c.fim}}</td>
+                    <td>{{ c.time}}</td>
+                    <td><button type="button" class="btn btn-default" ng-click="RemoverCampanha(e)">Remover</button></td>
+                </tr>	  		
+            </table>
+        </div>
+
+        <!-- jQuery and Bootstrap library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js" charset="utf-8"></script>
+        <script src="js/app.js" charset="utf-8"></script>
+
+    </body>
 </html>

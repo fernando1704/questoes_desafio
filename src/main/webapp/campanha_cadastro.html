@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+        <meta charset="iso-8859-1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+
+
+        <!-- Bootstrap style -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    </head>	
+    <body ng-app="campanhaApp">
+
+        <div class="page-header">
+            <h1>Cadastro de campanha</h1>
+        </div>
+
+        <div class="container" ng-controller="campanhaController">
+            <form name="campanhaFormulario" role="form">
+                <div class="alert alert-success" ng-show="mensagemSuccess != null">
+                    {{ mensagemSuccess}}
+                </div>
+                <div class="alert alert-danger" ng-show="mensagemError != null">
+                    {{ mensagemError}}
+                </div>
+
+                <div class="form-group"><label>Nome</label> <input type="text" class="form-control" ng-model="campanha.numero" required/></div>
+                <div class="form-group"><label>Inicio</label>   <input type="text" class="form-control" ng-model="campanha.dataVigenciaInicio" /></div>
+                <div class="form-group"><label>Fim</label>   <input type="text" class="form-control" ng-model="campanha.dataVigenciaFim" /></div>
+                <div class="form-group"><label>Time do coração</label>   <input type="text" class="form-control" ng-model="campanha.timeId" required/></div>
+                <div class="form-group"><button type="submit" class="btn btn-primary" ng-click="salvarCampanha(campanha)">Salvar</button></div>
+            </form>
+
+        </div>
+
+        <!-- jQuery and Bootstrap library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js" charset="utf-8"></script>
+        <script src="js/app.js" charset="utf-8"></script>
+
+    </body>
+</html>

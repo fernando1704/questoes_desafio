@@ -14,6 +14,9 @@ public class CampanhaServiceImpl implements CampanhaService {
     @Autowired
     private CampanhaDao campanhaDao;
 
+    public List<Campanha> listarCampanhas() {
+        return this.getCampanhaDao().listarCampanhas();
+    }
     public List<Campanha> buscarCampanhaPorCliente(final Cliente cliente) {
         return this.getCampanhaDao().buscarCampanhaPorCliente(cliente);
     }

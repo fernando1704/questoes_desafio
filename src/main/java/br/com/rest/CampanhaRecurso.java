@@ -19,27 +19,34 @@ import java.util.List;
 @Component
 public class CampanhaRecurso {
 
-	@Autowired
-	private CampanhaService campanhaService;
+    @Autowired
+    private CampanhaService campanhaService;
 
-	@GET
-	@Path("/{clienteId}")
-	@Produces(APPLICATION_JSON)
-	public List<Campanha> buscarCampanhaPorCliente(
-			@PathParam("clienteId") Cliente cliente){
-		
-		return this.campanhaService.buscarCampanhaPorCliente(cliente);
-		
-	}
-        
-        @GET
-	@Path("/{timeId}")
-	@Produces(APPLICATION_JSON)
-	public List<Campanha> buscarCampanhaPorTimeId(
-			@PathParam("timeId") Integer timeId){
-		
-		return this.campanhaService.buscarCampanhaPorTimeId(timeId);
-		
-	}
-	
+    @GET
+    @Path("/{clienteId}")
+    @Produces(APPLICATION_JSON)
+    public List<Campanha> buscarCampanhaPorCliente(
+            @PathParam("clienteId") Cliente cliente) {
+
+        return this.campanhaService.buscarCampanhaPorCliente(cliente);
+
+    }
+
+    @GET
+    @Path("/{timeId}")
+    @Produces(APPLICATION_JSON)
+    public List<Campanha> buscarCampanhaPorTimeId(
+            @PathParam("timeId") Integer timeId) {
+
+        return this.campanhaService.buscarCampanhaPorTimeId(timeId);
+
+    }
+
+    @GET
+    @Produces(APPLICATION_JSON)
+    public List<Campanha> listarTodas() {
+        return this.campanhaService.listarCampanhas();
+
+    }
+
 }

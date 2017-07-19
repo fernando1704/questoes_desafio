@@ -9,5 +9,5 @@ public interface CampanhaService {
     public List<Campanha> buscarCampanhaPorCliente(final Cliente cliente);
     public void addCampanha(Campanha campanha);
     public List<Campanha> buscarCampanhaPorTimeId(final Integer timeId);
-    
+    public List<Campanha> listarCampanhas();
 }

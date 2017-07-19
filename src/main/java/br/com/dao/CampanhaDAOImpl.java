@@ -42,6 +42,36 @@ public class CampanhaDAOImpl implements CampanhaDao {
         }
         return listaCampanhaPorCliente;
     }
+    
+    public List<Campanha> listarCampanhas() {
+        List<Campanha> listaCampanhas = new ArrayList<Campanha>();
+
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT *, t.nome as time_nome FROM campanha c INNER JOIN time t ON c.time_id = t.id ");
+        sql.append("ORDER BY data_vigencia_inicio ");
+        try {
+            Connection conn = Conexao.abrir();
+
+            PreparedStatement comando = conn.prepareStatement(sql.toString());
+            ResultSet resultado = comando.executeQuery();
+
+            while (resultado.next()) {
+                Campanha campanha = new Campanha();
+                campanha.setNome(resultado.getString("nome"));
+                campanha.setDataVigenciaInicio(resultado.getDate("data_vigencia_inicio"));
+                campanha.setDataVigenciaFim(resultado.getDate("data_vigencia_fim"));
+                campanha.setTimeId(resultado.getInt("time_id"));
+                listaCampanhas.add(campanha);
+            }
+
+            resultado.close();
+            comando.close();
+            conn.close();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return listaCampanhas;
+    }
 
     public List<Campanha> buscarCampanhaPorTimeId(Integer timeId) {
         List<Campanha> listaCampanhaPorTimeId = new ArrayList<Campanha>();
